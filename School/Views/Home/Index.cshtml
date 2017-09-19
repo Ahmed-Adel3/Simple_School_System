@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "SCHOOL";
+}
+
+    <div class="jumbotron " style="text-align:center">
+        <h1>Simple School System</h1>
+
+        @if (Session["user"] == null)
+        {
+            <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal1">Parent Login</button>
+            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2">Parent SignUp</button>
+        }
+        else
+        {
+            <h3>Welcome @Session["user"]</h3>
+            <a href="@Url.Action("logout")" class="btn btn-primary btn-lg" >SignOut </a>
+            <a href="@Url.Action("StudentList")" class="btn btn-primary btn-lg"> Go To Your Student </a>
+        }
+
+        @Html.Partial("_SignupPartial", new School.Models.Father_signup_Model())
+        @Html.Partial("_SigninPartial", new School.Models.Father_signin_Model())
+    </div>
+
+
+
+

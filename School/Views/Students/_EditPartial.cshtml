@@ -1,0 +1,58 @@
+﻿@model School.Models.Student
+
+            @using (Html.BeginForm("Edit", "Students",FormMethod.Post))
+            {
+                   @Html.AntiForgeryToken()
+                   @Html.Hidden("InitialName", Model.fullname)
+
+                <div class="form-horizontal">
+                    <hr />
+                    @Html.HiddenFor(model => model.st_id)
+              
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.fullname, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.fullname, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.fullname, "", new { @class = "label label-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.gender, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownList("Gender", new List<SelectListItem>{
+                                                                        new SelectListItem{ Text="Male", Value="Male"},
+                                                                        new SelectListItem{ Text="Female", Value="Female"}
+                                                                        }, "Select Gender"
+                                                                        )
+                            @Html.ValidationMessageFor(model => model.gender, "", new { @class = "label label-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.birth_date, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.birth_date, new { htmlAttributes = new { @class = "form-control", type = "date", @min = "2000-01-01", @max = "2016-12-31" } })                       
+                            @Html.ValidationMessageFor(model => model.birth_date, "", new { @class = "label label-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.phone, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.phone, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.phone, "", new { @class = "label label-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Save" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+            }
+
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+
+
