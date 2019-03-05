@@ -1,3 +1,6 @@
+See Live application    http://schoolsys.somee.com/
+
+
 Task
 
 There is a school that needs to develop a small application to enable fathers to enter their children information. First each father should type his username (Must be unique), then redirected to his children information page as students in this school. Student information are {Full Name (Must be unique) *, Age *, Gender *, Date of birth * and Phone number}.
@@ -7,7 +10,7 @@ What will be done:
 -     Start SQL Server Management Studio and create database that achieves business
 requirements.
 
--	Start Visual Studio and create new project to implement the following requirements: 
+Requirements: 
 
 1- Create a popup window contains a textbox and button to set father username (should be inserted in database to be used later). And If Correct this popup would disappear and students’ list page will be shown.
 
